@@ -1,16 +1,16 @@
 ﻿# ============================================================
 # Decap CMS â€” Configuration Claria Studio
 # ============================================================
-# Backend prod : GitHub OAuth (nÃ©cessite un proxy OAuth gratuit
-# dÃ©ployÃ© sur Vercel â€” voir README.md section "CMS").
+# Backend prod : GitHub OAuth (necessite un proxy OAuth gratuit
+# deploye sur Vercel â€” voir README.md section "CMS").
 #
-# Pour tester en local sans rien dÃ©ployer :
+# Pour tester en local sans rien deployer :
 #   1. Lancer le site : bun dev   (ou npm run dev)
 #   2. Dans un autre terminal : npx decap-server
 #   3. Ouvrir http://localhost:8080/admin/  (ou le port Vite)
 #
 # Le bloc "local_backend: true" autorise le mode local automatique
-# quand on accÃ¨de Ã  /admin depuis localhost.
+# quand on accede Ã  /admin depuis localhost.
 # ============================================================
 
 local_backend: true
@@ -28,37 +28,37 @@ display_url: https://claria.studio
 locale: fr
 
 # ============================================================
-# COLLECTIONS â€” chaque entrÃ©e = un fichier JSON Ã©ditable
+# COLLECTIONS â€” chaque entree = un fichier JSON editable
 # ============================================================
 collections:
-  # ---------- 1. RÃ©glages globaux du site ----------
+  # ---------- 1. Reglages globaux du site ----------
   - name: settings
-    label: "âš™ï¸ RÃ©glages site"
+    label: "âš™ï¸ Reglages site"
     files:
       - file: src/content/site.json
         name: site
-        label: "IdentitÃ© du site"
+        label: "Identite du site"
         fields:
           - { name: name, label: "Nom", widget: string }
           - { name: url, label: "URL canonique", widget: string }
-          - { name: baseDescription, label: "Description SEO par dÃ©faut", widget: text }
+          - { name: baseDescription, label: "Description SEO par defaut", widget: text }
           - { name: email, label: "Email de contact", widget: string }
           - { name: founder, label: "Fondateur", widget: string }
-          - { name: areaServed, label: "Zone gÃ©ographique", widget: string }
+          - { name: areaServed, label: "Zone geographique", widget: string }
 
       - file: src/content/hero.json
         name: hero
-        label: "Hero (page dâ€™accueil)"
+        label: "Hero (page d'accueil)"
         fields:
           - { name: eyebrow, label: "Sur-titre", widget: string }
-          - { name: titleStart, label: "Titre â€” dÃ©but", widget: string }
+          - { name: titleStart, label: "Titre â€” debut", widget: string }
           - { name: titleEm, label: "Titre â€” mot mis en valeur", widget: string }
           - { name: titleEnd, label: "Titre â€” fin", widget: string }
           - { name: subtitle, label: "Sous-titre", widget: text }
           - { name: ctaPrimary, label: "Bouton principal", widget: string }
           - { name: ctaSecondary, label: "Bouton secondaire", widget: string }
           - name: highlights
-            label: "Bandeau dâ€™infos"
+            label: "Bandeau d'infos"
             widget: list
             fields:
               - { name: label, label: "Ã‰tiquette", widget: string }
@@ -72,7 +72,7 @@ collections:
           - { name: title, label: "Titre", widget: string }
           - { name: paragraphs, label: "Paragraphes", widget: list, field: { label: "Paragraphe", name: text, widget: text } }
           - name: facts
-            label: "Faits clÃ©s"
+            label: "Faits cles"
             widget: list
             fields:
               - { name: label, label: "Ã‰tiquette", widget: string }
@@ -105,19 +105,19 @@ collections:
             widget: list
             fields:
               - name: icon
-                label: "IcÃ´ne"
+                label: "Icone"
                 widget: select
                 options: [Store, ShoppingBag, Briefcase, Building2, Database, LineChart, Lightbulb, ShieldCheck, Clock, FileText, CheckCircle2]
               - { name: title, label: "Titre", widget: string }
               - { name: desc, label: "Description", widget: text }
 
-  # ---------- 3. MÃ©thode ----------
+  # ---------- 3. Methode ----------
   - name: method
-    label: "ðŸ› ï¸ MÃ©thode"
+    label: "ðŸ› ï¸ Methode"
     files:
       - file: src/content/method.json
         name: method
-        label: "Section MÃ©thode"
+        label: "Section Methode"
         fields:
           - { name: eyebrow, label: "Sur-titre", widget: string }
           - { name: title, label: "Titre", widget: string }
@@ -125,11 +125,11 @@ collections:
             label: "Ã‰tapes"
             widget: list
             fields:
-              - { name: n, label: "NumÃ©ro (ex: 01)", widget: string }
-              - { name: t, label: "Titre Ã©tape", widget: string }
+              - { name: n, label: "Numero (ex: 01)", widget: string }
+              - { name: t, label: "Titre etape", widget: string }
               - { name: d, label: "Description", widget: text }
 
-  # ---------- 4. Engagements / RÃ©assurance ----------
+  # ---------- 4. Engagements / Reassurance ----------
   - name: reassurance
     label: "ðŸ¤ Engagements"
     files:
@@ -144,7 +144,7 @@ collections:
             widget: list
             fields:
               - name: icon
-                label: "IcÃ´ne"
+                label: "Icone"
                 widget: select
                 options: [ShieldCheck, Clock, FileText, CheckCircle2, Store, ShoppingBag, Briefcase, Building2, Database, LineChart, Lightbulb]
               - { name: title, label: "Titre", widget: string }
@@ -165,7 +165,7 @@ collections:
             widget: list
             fields:
               - { name: q, label: "Question", widget: string }
-              - { name: a, label: "RÃ©ponse", widget: text }
+              - { name: a, label: "Reponse", widget: text }
 
   # ---------- 6. Services ----------
   - name: services
@@ -181,25 +181,25 @@ collections:
             fields:
               - { name: slug, label: "Slug (identifiant URL)", widget: string }
               - name: icon
-                label: "IcÃ´ne"
+                label: "Icone"
                 widget: select
                 options: [Database, LineChart, Lightbulb, Store, ShoppingBag, Briefcase, Building2, ShieldCheck, Clock, FileText, CheckCircle2]
               - { name: title, label: "Titre", widget: string }
               - { name: short, label: "Pitch court", widget: text }
-              - { name: problem, label: "ProblÃ¨me adressÃ©", widget: text }
+              - { name: problem, label: "Probleme adresse", widget: text }
               - { name: action, label: "Ce que nous faisons", widget: text }
               - { name: deliverable, label: "Livrable", widget: text }
-              - { name: includes, label: "Inclus dans la prestation", widget: list, field: { label: "Ã‰lÃ©ment", name: item, widget: string } }
-              - { name: duration, label: "DurÃ©e", widget: string }
+              - { name: includes, label: "Inclus dans la prestation", widget: list, field: { label: "Ã‰lement", name: item, widget: string } }
+              - { name: duration, label: "Duree", widget: string }
               - { name: pricing, label: "Tarif (texte)", widget: string }
-              - { name: pricingFrom, label: "Prix de dÃ©part (â‚¬ HT, nombre)", widget: number, value_type: int }
+              - { name: pricingFrom, label: "Prix de depart (â‚¬ HT, nombre)", widget: number, value_type: int }
               - name: process
                 label: "Ã‰tapes du process"
                 widget: list
                 fields:
                   - { name: step, label: "Ã‰tape", widget: string }
                   - { name: desc, label: "Description", widget: text }
-              - { name: forWho, label: "Public visÃ©", widget: list, field: { label: "Public", name: item, widget: string } }
+              - { name: forWho, label: "Public vise", widget: list, field: { label: "Public", name: item, widget: string } }
 
   # ---------- 7. Projets / Ã‰tudes de cas ----------
   - name: projects
@@ -217,15 +217,16 @@ collections:
               - { name: tag, label: "Tag (ex: Retail Â· F&B)", widget: string }
               - { name: sector, label: "Secteur", widget: string }
               - { name: title, label: "Titre", widget: string }
-              - { name: summary, label: "RÃ©sumÃ©", widget: text }
-              - { name: tools, label: "Outils utilisÃ©s", widget: list, field: { label: "Outil", name: item, widget: string } }
+              - { name: summary, label: "Resume", widget: text }
+              - { name: tools, label: "Outils utilises", widget: list, field: { label: "Outil", name: item, widget: string } }
               - { name: deliverable, label: "Livrable principal", widget: text }
               - name: deliverableType
                 label: "Type de livrable"
                 widget: select
-                options: [Dashboard, Analyse, Pipeline, "Base de donnÃ©es"]
+                options: [Dashboard, Analyse, Pipeline, "Base de donnees"]
               - { name: context, label: "Contexte", widget: text }
               - { name: challenge, label: "Enjeu", widget: text }
               - { name: approach, label: "Approche", widget: text }
-              - { name: outcome, label: "RÃ©sultat", widget: text }
-              - { name: metrics, label: "Indicateurs clÃ©s", widget: list, field: { label: "Indicateur", name: item, widget: string } }
+              - { name: outcome, label: "Resultat", widget: text }
+              - { name: metrics, label: "Indicateurs cles", widget: list, field: { label: "Indicateur", name: item, widget: string } }
+
