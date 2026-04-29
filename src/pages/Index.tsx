@@ -4,23 +4,24 @@ import {
   MessageCircle,
   Github,
   Linkedin,
-  Database,
-  LineChart,
-  Lightbulb,
-  Store,
-  Building2,
-  Briefcase,
-  ShoppingBag,
   CheckCircle2,
-  Clock,
-  ShieldCheck,
-  FileText,
   Plus,
 } from "lucide-react";
 import Nav from "@/components/claria/Nav";
 import Hero from "@/components/claria/Hero";
 import Seo from "@/components/Seo";
-import { SITE } from "@/data/studio";
+import {
+  SITE,
+  services,
+  projects,
+  AUDIENCES,
+  METHOD,
+  REASSURANCE,
+  FAQ,
+  PROFILE,
+  CONTACT,
+  iconMap,
+} from "@/data/studio";
 import {
   Accordion,
   AccordionContent,
@@ -28,196 +29,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const services = [
-  {
-    icon: Database,
-    title: "Nettoyage & préparation de données",
-    problem: "Des fichiers éparpillés, incohérents ou incomplets qui bloquent toute analyse.",
-    action: "Nous consolidons vos sources, corrigeons les écarts et structurons vos données dans un format fiable et réutilisable.",
-    deliverable: "Base de données propre, documentation claire, fichiers sources normalisés.",
-    includes: [
-      "Audit des sources existantes (Excel, exports caisse, CRM, ERP…)",
-      "Détection et correction des doublons, incohérences et valeurs manquantes",
-      "Modélisation d’un schéma clair et documenté",
-      "Scripts de transformation reproductibles (SQL / Python)",
-    ],
-    duration: "1 à 3 semaines",
-    pricing: "À partir de 900 € HT",
-  },
-  {
-    icon: LineChart,
-    title: "Dashboard & reporting",
-    problem: "Un suivi d’activité flou, fait à la main, chronophage et peu fiable.",
-    action: "Nous concevons des tableaux de bord lisibles et des reportings automatisés centrés sur les indicateurs qui comptent.",
-    deliverable: "Dashboard Power BI, reporting périodique, indicateurs de pilotage.",
-    includes: [
-      "Cadrage des indicateurs clés (CA, marge, panier moyen, rotation…)",
-      "Conception graphique sobre, lisible, orientée décision",
-      "Connexion aux sources et automatisation des rafraîchissements",
-      "Formation à la lecture & courte documentation utilisateur",
-    ],
-    duration: "2 à 4 semaines",
-    pricing: "À partir de 1 500 € HT",
-  },
-  {
-    icon: Lightbulb,
-    title: "Analyse business & recommandations",
-    problem: "Beaucoup de données, peu d’enseignements concrets pour décider.",
-    action: "Nous analysons vos ventes, clients et performances pour faire émerger des leviers d’action clairs.",
-    deliverable: "Rapport d’analyse synthétique, recommandations priorisées, restitution.",
-    includes: [
-      "Analyse des ventes, des clients, des produits ou de la performance opérationnelle",
-      "Identification des signaux faibles et des leviers d’action",
-      "Rapport synthétique pensé pour la décision (pas pour la décoration)",
-      "Restitution orale et plan d’action priorisé",
-    ],
-    duration: "1 à 2 semaines",
-    pricing: "À partir de 1 200 € HT",
-  },
-];
-
-const projects = [
-  {
-    tag: "Retail · F&B",
-    title: "Coffee Shop Sales Analysis",
-    summary: "Analyse des ventes d’un coffee shop pour identifier les heures fortes, les produits moteurs et les opportunités de marge.",
-    tools: ["SQL", "Power BI"],
-    deliverable: "Dashboard de ventes & recommandations opérationnelles",
-    context: "Un coffee shop urbain disposant d’un historique de ventes par ticket sur plusieurs mois, sans vision consolidée de la performance.",
-    challenge: "Comprendre les heures à forte affluence, les produits qui tirent réellement la marge, et les jours sous-exploités.",
-    approach: "Consolidation des exports de caisse en SQL, création d’une base propre, modélisation d’un dashboard Power BI orienté pilotage quotidien.",
-    outcome: "Identification de 3 plages horaires sous-staffées et de 5 produits à fort potentiel de mise en avant. Reporting hebdomadaire automatisé.",
-    metrics: ["+ Lecture quotidienne du CA", "5 produits prioritaires identifiés", "3 leviers planning"],
-  },
-  {
-    tag: "Santé · Retail",
-    title: "Pharmacy Data Analysis",
-    summary: "Exploitation des données de caisse d’une pharmacie : rotation produits, saisonnalité et structuration du catalogue.",
-    tools: ["Python", "Power BI"],
-    deliverable: "Rapport d’analyse & tableau de bord produits",
-    context: "Une pharmacie indépendante souhaitant rationaliser son catalogue et mieux comprendre la saisonnalité de ses ventes.",
-    challenge: "Faire émerger les produits réellement rentables, les références à faible rotation et les pics de demande.",
-    approach: "Traitement des exports de caisse en Python, calcul de la rotation, segmentation produits, restitution sous Power BI.",
-    outcome: "Catalogue rationalisé, mise en avant ciblée sur les produits saisonniers, vision claire des références à arbitrer.",
-    metrics: ["Catalogue revu", "Saisonnalité cartographiée", "Suivi mensuel en place"],
-  },
-  {
-    tag: "E-commerce",
-    title: "E-commerce Revenue & Customer Analysis — Olist",
-    summary: "Analyse complète du chiffre d’affaires et du comportement client sur un dataset e-commerce multi-catégories.",
-    tools: ["SQL", "Python", "Power BI"],
-    deliverable: "Étude revenu, cohortes clients, indicateurs clés",
-    context: "Dataset e-commerce multi-catégories (Olist) couvrant ventes, clients, livraisons et avis.",
-    challenge: "Comprendre la composition du CA, identifier les catégories porteuses et le comportement de réachat des clients.",
-    approach: "Modélisation SQL des tables, analyse Python (cohortes, panier moyen, délais), restitution visuelle Power BI.",
-    outcome: "Vue claire du revenu par catégorie, identification des cohortes les plus fidèles et des points de friction logistiques.",
-    metrics: ["CA décomposé", "Cohortes clients", "Friction logistique identifiée"],
-  },
-  {
-    tag: "Data Engineering",
-    title: "Legacy Data Consolidation into PostgreSQL",
-    summary: "Consolidation de données historiques dispersées vers une base PostgreSQL structurée, documentée et requêtable.",
-    tools: ["PostgreSQL", "Python"],
-    deliverable: "Schéma relationnel, scripts d’ingestion, documentation",
-    context: "Plusieurs années d’historique réparties entre fichiers Excel, exports CSV et extractions ponctuelles, sans socle commun.",
-    challenge: "Reconstituer un historique fiable, requêtable et exploitable pour les analyses futures.",
-    approach: "Conception d’un schéma relationnel PostgreSQL, scripts d’ingestion Python idempotents, contrôles de qualité automatisés.",
-    outcome: "Base unique, documentée, prête à alimenter analyses et dashboards sans retraitement manuel.",
-    metrics: ["1 base unifiée", "Scripts reproductibles", "Documentation livrée"],
-  },
-  {
-    tag: "Immobilier (anonymisé)",
-    title: "Real Estate Data Collection & Structuring Pipeline",
-    summary: "Pipeline de collecte et de structuration de données immobilières pour alimenter un socle analytique exploitable.",
-    tools: ["Python", "PostgreSQL"],
-    deliverable: "Pipeline de collecte, base structurée, jeux prêts à l’analyse",
-    context: "Besoin d’un socle analytique alimenté par des données de marché immobilier collectées de manière régulière.",
-    challenge: "Mettre en place une collecte fiable, structurée et maintenable dans le temps.",
-    approach: "Pipeline Python modulaire, normalisation des champs clés, stockage PostgreSQL, contrôles qualité à chaque étape.",
-    outcome: "Socle analytique vivant, alimenté en continu, prêt pour des analyses de marché ou des tableaux de bord.",
-    metrics: ["Collecte automatisée", "Données normalisées", "Socle pérenne"],
-  },
-];
-
-const method = [
-  { n: "01", t: "Comprendre le besoin", d: "On clarifie l’objectif business, les décisions à éclairer et les contraintes existantes." },
-  { n: "02", t: "Structurer les données", d: "On consolide les sources, on nettoie, on met en forme un socle fiable et documenté." },
-  { n: "03", t: "Analyser & visualiser", d: "On construit des indicateurs lisibles, des tableaux de bord utiles et des analyses ciblées." },
-  { n: "04", t: "Restituer clairement", d: "On livre une restitution sobre, pédagogique, pensée pour être utilisée au quotidien." },
-];
-
-const audiences = [
-  {
-    icon: Store,
-    title: "Commerces & restauration",
-    desc: "Coffee shops, restaurants, boutiques : comprendre vos ventes, vos heures fortes, vos produits qui tirent la marge.",
-  },
-  {
-    icon: ShoppingBag,
-    title: "E-commerce & DNVB",
-    desc: "Suivre le CA, les cohortes clients, le panier moyen et les leviers de fidélisation.",
-  },
-  {
-    icon: Briefcase,
-    title: "TPE & professions libérales",
-    desc: "Pharmacies, cabinets, agences : un pilotage simple, fiable, sans usine à gaz.",
-  },
-  {
-    icon: Building2,
-    title: "PME en croissance",
-    desc: "Structurer la donnée existante avant qu’elle ne devienne un frein à la décision.",
-  },
-];
-
-const reassurance = [
-  {
-    icon: ShieldCheck,
-    title: "Confidentialité par défaut",
-    desc: "Données traitées de manière confidentielle, environnement isolé, anonymisation possible sur demande.",
-  },
-  {
-    icon: Clock,
-    title: "Délais clairs",
-    desc: "Un calendrier annoncé en début de mission, des points d’étape réguliers, des livrables datés.",
-  },
-  {
-    icon: FileText,
-    title: "Livrables documentés",
-    desc: "Chaque livrable est accompagné d’une documentation simple pour que vous puissiez l’utiliser en autonomie.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Sans dépendance technique",
-    desc: "Vous restez propriétaire de vos données, de vos scripts et de vos dashboards. Aucun verrouillage.",
-  },
-];
-
-const faqs = [
-  {
-    q: "Faut-il déjà avoir une base de données ?",
-    a: "Non. La plupart de nos clients démarrent avec des fichiers Excel, des exports de caisse ou de CRM. Notre rôle est justement de structurer ce qui existe avant d’aller plus loin.",
-  },
-  {
-    q: "Travaillez-vous avec de petites structures ?",
-    a: "Oui, c’est même notre cœur de cible. Commerces, TPE, PME en croissance, professions libérales : nous calibrons systématiquement la mission à votre taille et à votre maturité data.",
-  },
-  {
-    q: "Combien de temps prend une mission type ?",
-    a: "Une analyse ciblée : 1 à 2 semaines. Un dashboard de pilotage : 2 à 4 semaines. Une consolidation de données : 1 à 3 semaines. Chaque devis précise un calendrier engageant.",
-  },
-  {
-    q: "Que se passe-t-il après la livraison ?",
-    a: "Vous repartez avec des livrables documentés, utilisables en autonomie. Un accompagnement continu (suivi mensuel, évolutions) est possible mais jamais imposé.",
-  },
-  {
-    q: "Quels outils utilisez-vous ?",
-    a: "Principalement SQL, Python, PostgreSQL et Power BI. Nous nous adaptons à votre environnement existant lorsque c’est pertinent (Looker Studio, Metabase, Excel avancé).",
-  },
-  {
-    q: "À qui appartiennent les données et les livrables ?",
-    a: "À vous, intégralement. Scripts, modèles, dashboards et documentation vous sont remis. Aucun verrouillage technique, aucune dépendance.",
-  },
-];
+const audiences = AUDIENCES.items;
+const reassurance = REASSURANCE.items;
+const faqs = FAQ.items;
+const method = METHOD.steps;
 
 const Index = () => {
   const jsonLd = [
@@ -315,7 +130,7 @@ const Index = () => {
             </div>
             <div className="mt-16 grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
               {audiences.map((a) => {
-                const Icon = a.icon;
+                const Icon = iconMap[a.icon] ?? CheckCircle2;
                 return (
                   <div key={a.title} className="flex flex-col gap-4 bg-background p-8">
                     <Icon className="h-6 w-6 text-accent" strokeWidth={1.5} />
@@ -538,7 +353,7 @@ const Index = () => {
             </div>
             <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {reassurance.map((r) => {
-                const Icon = r.icon;
+                const Icon = iconMap[r.icon] ?? CheckCircle2;
                 return (
                   <div key={r.title} className="flex flex-col gap-4 border-t border-border pt-6">
                     <Icon className="h-6 w-6 text-accent" strokeWidth={1.5} />

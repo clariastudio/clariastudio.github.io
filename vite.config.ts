@@ -1,4 +1,4 @@
-﻿import { defineConfig } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   // Base URL pour GitHub Pages.
   // - En local / preview Lovable : "/"
-  // - En production GitHub Pages : dÃ©fini via la variable VITE_BASE
+  // - En production GitHub Pages : défini via la variable VITE_BASE
   //   (ex: "/claria-studio/" si le repo s'appelle claria-studio)
   base: mode === "production" ? process.env.VITE_BASE ?? "/" : "/",
   server: {

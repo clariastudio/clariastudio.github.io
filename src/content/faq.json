@@ -1,0 +1,12 @@
+{
+  "eyebrow": "FAQ",
+  "title": "Les questions que l’on nous pose souvent.",
+  "items": [
+    { "q": "Faut-il déjà avoir une base de données ?", "a": "Non. La plupart de nos clients démarrent avec des fichiers Excel, des exports de caisse ou de CRM. Notre rôle est justement de structurer ce qui existe avant d’aller plus loin." },
+    { "q": "Travaillez-vous avec de petites structures ?", "a": "Oui, c’est même notre cœur de cible. Commerces, TPE, PME en croissance, professions libérales : nous calibrons systématiquement la mission à votre taille et à votre maturité data." },
+    { "q": "Combien de temps prend une mission type ?", "a": "Une analyse ciblée : 1 à 2 semaines. Un dashboard de pilotage : 2 à 4 semaines. Une consolidation de données : 1 à 3 semaines. Chaque devis précise un calendrier engageant." },
+    { "q": "Que se passe-t-il après la livraison ?", "a": "Vous repartez avec des livrables documentés, utilisables en autonomie. Un accompagnement continu (suivi mensuel, évolutions) est possible mais jamais imposé." },
+    { "q": "Quels outils utilisez-vous ?", "a": "Principalement SQL, Python, PostgreSQL et Power BI. Nous nous adaptons à votre environnement existant lorsque c’est pertinent (Looker Studio, Metabase, Excel avancé)." },
+    { "q": "À qui appartiennent les données et les livrables ?", "a": "À vous, intégralement. Scripts, modèles, dashboards et documentation vous sont remis. Aucun verrouillage technique, aucune dépendance." }
+  ]
+}

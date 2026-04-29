@@ -1,0 +1,14 @@
+{
+  "eyebrow": "Le studio",
+  "title": "Un studio indépendant dédié à la lisibilité de l’activité.",
+  "paragraphs": [
+    "Claria Studio est un studio indépendant spécialisé en analyse de données, reporting et tableaux de bord. Nous intervenons auprès de petites entreprises, commerces et structures en croissance qui disposent de données, mais peinent à les exploiter.",
+    "Notre approche reste simple : comprendre l’activité, structurer les données existantes et livrer des outils clairs pour décider. Sans jargon inutile, sans surcouche technique, et avec un souci constant de rigueur.",
+    "Nous croyons qu’une donnée n’a de valeur que si elle se transforme en décision. C’est ce qui guide chacune de nos missions : livrer des outils sobres, pédagogiques et réellement utilisés au quotidien — pas des rapports qu’on ouvre une fois."
+  ],
+  "facts": [
+    { "label": "Founder", "value": "Haitham Taous" },
+    { "label": "Outils", "value": "SQL · Python · PostgreSQL · Power BI" },
+    { "label": "Disponibilité", "value": "Missions ponctuelles & continues" }
+  ]
+}

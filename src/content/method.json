@@ -1,0 +1,10 @@
+{
+  "eyebrow": "Méthode",
+  "title": "Une démarche claire, en quatre temps.",
+  "steps": [
+    { "n": "01", "t": "Comprendre le besoin", "d": "On clarifie l’objectif business, les décisions à éclairer et les contraintes existantes." },
+    { "n": "02", "t": "Structurer les données", "d": "On consolide les sources, on nettoie, on met en forme un socle fiable et documenté." },
+    { "n": "03", "t": "Analyser & visualiser", "d": "On construit des indicateurs lisibles, des tableaux de bord utiles et des analyses ciblées." },
+    { "n": "04", "t": "Restituer clairement", "d": "On livre une restitution sobre, pédagogique, pensée pour être utilisée au quotidien." }
+  ]
+}

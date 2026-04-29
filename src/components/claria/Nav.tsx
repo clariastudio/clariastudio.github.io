@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logoClaria from "@/assets/logo-claria.png";
 
 const links = [
   { href: "/#studio", label: "Studio" },
@@ -58,11 +59,14 @@ const Nav = () => {
       }`}
     >
       <div className="container-studio flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-baseline gap-1.5 text-foreground">
-          <span className="font-serif text-2xl leading-none">Claria</span>
-          <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-            Studio
-          </span>
+        <Link to="/" className="flex items-center text-foreground" aria-label="Claria Studio — accueil">
+          <img
+            src={logoClaria}
+            alt="Claria Studio"
+            className="h-7 w-auto md:h-8"
+            loading="eager"
+            decoding="async"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

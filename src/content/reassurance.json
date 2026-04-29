@@ -1,0 +1,10 @@
+{
+  "eyebrow": "Engagements",
+  "title": "Une collaboration cadrée, lisible, sans mauvaise surprise.",
+  "items": [
+    { "icon": "ShieldCheck", "title": "Confidentialité par défaut", "desc": "Données traitées de manière confidentielle, environnement isolé, anonymisation possible sur demande." },
+    { "icon": "Clock", "title": "Délais clairs", "desc": "Un calendrier annoncé en début de mission, des points d’étape réguliers, des livrables datés." },
+    { "icon": "FileText", "title": "Livrables documentés", "desc": "Chaque livrable est accompagné d’une documentation simple pour que vous puissiez l’utiliser en autonomie." },
+    { "icon": "CheckCircle2", "title": "Sans dépendance technique", "desc": "Vous restez propriétaire de vos données, de vos scripts et de vos dashboards. Aucun verrouillage." }
+  ]
+}

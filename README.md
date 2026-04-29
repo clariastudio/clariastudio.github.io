@@ -6,6 +6,47 @@ Stack : **Vite + React + TypeScript + Tailwind CSS**. 100% statique, prêt pour 
 
 ---
 
+## ✏️ CMS interne — Modifier le contenu sans toucher au code
+
+Le site embarque **[Decap CMS](https://decapcms.org)** (ex-Netlify CMS, gratuit, open source) accessible sur `/admin`.
+
+Tout le contenu éditable est stocké en JSON dans `src/content/` :
+`site.json`, `hero.json`, `profile.json`, `audiences.json`, `method.json`,
+`reassurance.json`, `faq.json`, `contact.json`, `services.json`, `projects.json`.
+
+### Mode A — Édition locale (immédiat, sans configuration)
+
+Pour tester le CMS sur votre machine sans rien déployer :
+
+```bash
+# Terminal 1
+bun dev                       # ou : npm run dev
+
+# Terminal 2
+npx decap-server              # proxy local Decap → écrit dans src/content/
+```
+
+Puis ouvrez **http://localhost:8080/admin/** (port Vite). Toute modification
+est écrite directement dans vos fichiers JSON. Vous commitez ensuite
+manuellement sur GitHub.
+
+### Mode B — Édition en ligne (sur le site déployé)
+
+Pour éditer depuis n'importe où via une interface web protégée :
+
+1. **Forker** [decap-proxy](https://github.com/vencax/netlify-cms-github-oauth-provider) (ou équivalent) et le déployer **gratuitement sur Vercel**.
+2. Créer une **OAuth App** sur GitHub : Settings → Developer settings → OAuth Apps → New OAuth App. Callback URL = `https://VOTRE-PROXY.vercel.app/callback`.
+3. Renseigner `CLIENT_ID` et `CLIENT_SECRET` dans les variables d'environnement Vercel du proxy.
+4. Dans `public/admin/config.yml`, remplacer :
+   - `repo: USER/REPO` → votre repo GitHub (ex. `haitham/claria-studio`)
+   - `base_url: https://YOUR-OAUTH-PROXY.vercel.app` → l'URL de votre proxy
+5. Pousser, puis aller sur `https://votre-site.github.io/admin/`.
+
+Connexion via votre compte GitHub. Les modifications créent des commits sur `main`,
+ce qui re-déclenche automatiquement le déploiement GitHub Pages.
+
+---
+
 ## 🚀 Déploiement sur GitHub Pages
 
 Le projet est pré-configuré pour un déploiement automatique via **GitHub Actions**.

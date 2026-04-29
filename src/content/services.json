@@ -1,0 +1,79 @@
+{
+  "items": [
+    {
+      "slug": "donnees",
+      "icon": "Database",
+      "title": "Nettoyage & préparation de données",
+      "short": "Consolider, fiabiliser et structurer vos données pour qu’elles deviennent exploitables.",
+      "problem": "Des fichiers éparpillés, incohérents ou incomplets qui bloquent toute analyse.",
+      "action": "Nous consolidons vos sources, corrigeons les écarts et structurons vos données dans un format fiable et réutilisable.",
+      "deliverable": "Base de données propre, documentation claire, fichiers sources normalisés.",
+      "includes": [
+        "Audit des sources existantes (Excel, exports caisse, CRM, ERP…)",
+        "Détection et correction des doublons, incohérences et valeurs manquantes",
+        "Modélisation d’un schéma clair et documenté",
+        "Scripts de transformation reproductibles (SQL / Python)"
+      ],
+      "duration": "1 à 3 semaines",
+      "pricing": "À partir de 900 € HT",
+      "pricingFrom": 900,
+      "process": [
+        { "step": "Audit", "desc": "Inventaire des sources, écarts et besoins." },
+        { "step": "Modélisation", "desc": "Schéma cible documenté et validé." },
+        { "step": "Transformation", "desc": "Scripts SQL/Python reproductibles." },
+        { "step": "Recette", "desc": "Contrôles qualité et remise documentée." }
+      ],
+      "forWho": ["TPE", "Commerces", "PME en croissance"]
+    },
+    {
+      "slug": "dashboard",
+      "icon": "LineChart",
+      "title": "Dashboard & reporting",
+      "short": "Concevoir des tableaux de bord lisibles et des reportings automatisés centrés sur la décision.",
+      "problem": "Un suivi d’activité flou, fait à la main, chronophage et peu fiable.",
+      "action": "Nous concevons des tableaux de bord lisibles et des reportings automatisés centrés sur les indicateurs qui comptent.",
+      "deliverable": "Dashboard Power BI, reporting périodique, indicateurs de pilotage.",
+      "includes": [
+        "Cadrage des indicateurs clés (CA, marge, panier moyen, rotation…)",
+        "Conception graphique sobre, lisible, orientée décision",
+        "Connexion aux sources et automatisation des rafraîchissements",
+        "Formation à la lecture & courte documentation utilisateur"
+      ],
+      "duration": "2 à 4 semaines",
+      "pricing": "À partir de 1 500 € HT",
+      "pricingFrom": 1500,
+      "process": [
+        { "step": "Cadrage", "desc": "Indicateurs clés et décisions à éclairer." },
+        { "step": "Maquette", "desc": "Wireframes du dashboard validés ensemble." },
+        { "step": "Construction", "desc": "Connexions, calculs, mise en forme." },
+        { "step": "Mise en service", "desc": "Automatisation, formation, doc." }
+      ],
+      "forWho": ["Commerces & restauration", "E-commerce", "PME"]
+    },
+    {
+      "slug": "analyse",
+      "icon": "Lightbulb",
+      "title": "Analyse business & recommandations",
+      "short": "Faire émerger des leviers d’action concrets à partir de vos ventes, clients et performances.",
+      "problem": "Beaucoup de données, peu d’enseignements concrets pour décider.",
+      "action": "Nous analysons vos ventes, clients et performances pour faire émerger des leviers d’action clairs.",
+      "deliverable": "Rapport d’analyse synthétique, recommandations priorisées, restitution.",
+      "includes": [
+        "Analyse des ventes, des clients, des produits ou de la performance opérationnelle",
+        "Identification des signaux faibles et des leviers d’action",
+        "Rapport synthétique pensé pour la décision (pas pour la décoration)",
+        "Restitution orale et plan d’action priorisé"
+      ],
+      "duration": "1 à 2 semaines",
+      "pricing": "À partir de 1 200 € HT",
+      "pricingFrom": 1200,
+      "process": [
+        { "step": "Question", "desc": "Clarifier la décision à éclairer." },
+        { "step": "Exploration", "desc": "Analyses ciblées et croisements." },
+        { "step": "Synthèse", "desc": "Rapport sobre, priorisé, lisible." },
+        { "step": "Restitution", "desc": "Présentation et plan d’action." }
+      ],
+      "forWho": ["E-commerce", "Commerces", "PME en croissance"]
+    }
+  ]
+}

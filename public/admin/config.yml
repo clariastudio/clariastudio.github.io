@@ -1,0 +1,232 @@
+# ============================================================
+# Decap CMS — Configuration Claria Studio
+# ============================================================
+# Backend prod : GitHub OAuth (nécessite un proxy OAuth gratuit
+# déployé sur Vercel — voir README.md section "CMS").
+#
+# Pour tester en local sans rien déployer :
+#   1. Lancer le site : bun dev   (ou npm run dev)
+#   2. Dans un autre terminal : npx decap-server
+#   3. Ouvrir http://localhost:8080/admin/  (ou le port Vite)
+#
+# Le bloc "local_backend: true" autorise le mode local automatique
+# quand on accède à /admin depuis localhost.
+# ============================================================
+
+local_backend: true
+
+backend:
+  name: github
+  repo: USER/REPO            # ⚠️ À remplacer par votre repo GitHub (ex: haitham/claria-studio)
+  branch: main
+  base_url: https://YOUR-OAUTH-PROXY.vercel.app   # ⚠️ URL du proxy OAuth (voir README)
+
+publish_mode: simple
+media_folder: "public/uploads"
+public_folder: "/uploads"
+site_url: https://claria.studio
+display_url: https://claria.studio
+locale: fr
+
+# ============================================================
+# COLLECTIONS — chaque entrée = un fichier JSON éditable
+# ============================================================
+collections:
+  # ---------- 1. Réglages globaux du site ----------
+  - name: settings
+    label: "⚙️ Réglages site"
+    files:
+      - file: src/content/site.json
+        name: site
+        label: "Identité du site"
+        fields:
+          - { name: name, label: "Nom", widget: string }
+          - { name: url, label: "URL canonique", widget: string }
+          - { name: baseDescription, label: "Description SEO par défaut", widget: text }
+          - { name: email, label: "Email de contact", widget: string }
+          - { name: founder, label: "Fondateur", widget: string }
+          - { name: areaServed, label: "Zone géographique", widget: string }
+
+      - file: src/content/hero.json
+        name: hero
+        label: "Hero (page d’accueil)"
+        fields:
+          - { name: eyebrow, label: "Sur-titre", widget: string }
+          - { name: titleStart, label: "Titre — début", widget: string }
+          - { name: titleEm, label: "Titre — mot mis en valeur", widget: string }
+          - { name: titleEnd, label: "Titre — fin", widget: string }
+          - { name: subtitle, label: "Sous-titre", widget: text }
+          - { name: ctaPrimary, label: "Bouton principal", widget: string }
+          - { name: ctaSecondary, label: "Bouton secondaire", widget: string }
+          - name: highlights
+            label: "Bandeau d’infos"
+            widget: list
+            fields:
+              - { name: label, label: "Étiquette", widget: string }
+              - { name: value, label: "Valeur", widget: string }
+
+      - file: src/content/profile.json
+        name: profile
+        label: "Profil / Studio"
+        fields:
+          - { name: eyebrow, label: "Sur-titre", widget: string }
+          - { name: title, label: "Titre", widget: string }
+          - { name: paragraphs, label: "Paragraphes", widget: list, field: { label: "Paragraphe", name: text, widget: text } }
+          - name: facts
+            label: "Faits clés"
+            widget: list
+            fields:
+              - { name: label, label: "Étiquette", widget: string }
+              - { name: value, label: "Valeur", widget: string }
+
+      - file: src/content/contact.json
+        name: contact
+        label: "Contact"
+        fields:
+          - { name: eyebrow, label: "Sur-titre", widget: string }
+          - { name: title, label: "Titre", widget: string }
+          - { name: intro, label: "Intro", widget: text }
+          - { name: email, label: "Email", widget: string }
+          - { name: linkedin, label: "URL LinkedIn", widget: string, required: false }
+          - { name: github, label: "URL GitHub", widget: string, required: false }
+
+  # ---------- 2. Audiences ("Pour qui") ----------
+  - name: audiences
+    label: "🎯 Pour qui"
+    files:
+      - file: src/content/audiences.json
+        name: audiences
+        label: "Section Pour qui"
+        fields:
+          - { name: eyebrow, label: "Sur-titre", widget: string }
+          - { name: title, label: "Titre", widget: string }
+          - { name: intro, label: "Intro", widget: text }
+          - name: items
+            label: "Cibles"
+            widget: list
+            fields:
+              - name: icon
+                label: "Icône"
+                widget: select
+                options: [Store, ShoppingBag, Briefcase, Building2, Database, LineChart, Lightbulb, ShieldCheck, Clock, FileText, CheckCircle2]
+              - { name: title, label: "Titre", widget: string }
+              - { name: desc, label: "Description", widget: text }
+
+  # ---------- 3. Méthode ----------
+  - name: method
+    label: "🛠️ Méthode"
+    files:
+      - file: src/content/method.json
+        name: method
+        label: "Section Méthode"
+        fields:
+          - { name: eyebrow, label: "Sur-titre", widget: string }
+          - { name: title, label: "Titre", widget: string }
+          - name: steps
+            label: "Étapes"
+            widget: list
+            fields:
+              - { name: n, label: "Numéro (ex: 01)", widget: string }
+              - { name: t, label: "Titre étape", widget: string }
+              - { name: d, label: "Description", widget: text }
+
+  # ---------- 4. Engagements / Réassurance ----------
+  - name: reassurance
+    label: "🤝 Engagements"
+    files:
+      - file: src/content/reassurance.json
+        name: reassurance
+        label: "Section Engagements"
+        fields:
+          - { name: eyebrow, label: "Sur-titre", widget: string }
+          - { name: title, label: "Titre", widget: string }
+          - name: items
+            label: "Engagements"
+            widget: list
+            fields:
+              - name: icon
+                label: "Icône"
+                widget: select
+                options: [ShieldCheck, Clock, FileText, CheckCircle2, Store, ShoppingBag, Briefcase, Building2, Database, LineChart, Lightbulb]
+              - { name: title, label: "Titre", widget: string }
+              - { name: desc, label: "Description", widget: text }
+
+  # ---------- 5. FAQ ----------
+  - name: faq
+    label: "❓ FAQ"
+    files:
+      - file: src/content/faq.json
+        name: faq
+        label: "Section FAQ"
+        fields:
+          - { name: eyebrow, label: "Sur-titre", widget: string }
+          - { name: title, label: "Titre", widget: string }
+          - name: items
+            label: "Questions"
+            widget: list
+            fields:
+              - { name: q, label: "Question", widget: string }
+              - { name: a, label: "Réponse", widget: text }
+
+  # ---------- 6. Services ----------
+  - name: services
+    label: "💼 Services"
+    files:
+      - file: src/content/services.json
+        name: services
+        label: "Liste des services"
+        fields:
+          - name: items
+            label: "Services"
+            widget: list
+            fields:
+              - { name: slug, label: "Slug (identifiant URL)", widget: string }
+              - name: icon
+                label: "Icône"
+                widget: select
+                options: [Database, LineChart, Lightbulb, Store, ShoppingBag, Briefcase, Building2, ShieldCheck, Clock, FileText, CheckCircle2]
+              - { name: title, label: "Titre", widget: string }
+              - { name: short, label: "Pitch court", widget: text }
+              - { name: problem, label: "Problème adressé", widget: text }
+              - { name: action, label: "Ce que nous faisons", widget: text }
+              - { name: deliverable, label: "Livrable", widget: text }
+              - { name: includes, label: "Inclus dans la prestation", widget: list, field: { label: "Élément", name: item, widget: string } }
+              - { name: duration, label: "Durée", widget: string }
+              - { name: pricing, label: "Tarif (texte)", widget: string }
+              - { name: pricingFrom, label: "Prix de départ (€ HT, nombre)", widget: number, value_type: int }
+              - name: process
+                label: "Étapes du process"
+                widget: list
+                fields:
+                  - { name: step, label: "Étape", widget: string }
+                  - { name: desc, label: "Description", widget: text }
+              - { name: forWho, label: "Public visé", widget: list, field: { label: "Public", name: item, widget: string } }
+
+  # ---------- 7. Projets / Études de cas ----------
+  - name: projects
+    label: "📊 Projets"
+    files:
+      - file: src/content/projects.json
+        name: projects
+        label: "Liste des projets"
+        fields:
+          - name: items
+            label: "Projets"
+            widget: list
+            fields:
+              - { name: slug, label: "Slug", widget: string }
+              - { name: tag, label: "Tag (ex: Retail · F&B)", widget: string }
+              - { name: sector, label: "Secteur", widget: string }
+              - { name: title, label: "Titre", widget: string }
+              - { name: summary, label: "Résumé", widget: text }
+              - { name: tools, label: "Outils utilisés", widget: list, field: { label: "Outil", name: item, widget: string } }
+              - { name: deliverable, label: "Livrable principal", widget: text }
+              - name: deliverableType
+                label: "Type de livrable"
+                widget: select
+                options: [Dashboard, Analyse, Pipeline, "Base de données"]
+              - { name: context, label: "Contexte", widget: text }
+              - { name: challenge, label: "Enjeu", widget: text }
+              - { name: approach, label: "Approche", widget: text }
+              - { name: outcome, label: "Résultat", widget: text }
+              - { name: metrics, label: "Indicateurs clés", widget: list, field: { label: "Indicateur", name: item, widget: string } }

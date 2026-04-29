@@ -1,0 +1,15 @@
+{
+  "eyebrow": "Studio indépendant — Data & Reporting",
+  "titleStart": "Des données dispersées,",
+  "titleEm": "transformées",
+  "titleEnd": "en décisions claires.",
+  "subtitle": "Claria Studio accompagne les petites entreprises et structures en croissance avec des reportings lisibles, des tableaux de bord utiles et des analyses réellement exploitables.",
+  "ctaPrimary": "Discuter d’un projet",
+  "ctaSecondary": "Voir les projets",
+  "highlights": [
+    { "label": "Focus", "value": "Data, reporting, dashboards" },
+    { "label": "Stack", "value": "SQL · Python · Power BI" },
+    { "label": "Pour", "value": "Petites structures & commerces" },
+    { "label": "Livraison", "value": "Claire, documentée, utile" }
+  ]
+}

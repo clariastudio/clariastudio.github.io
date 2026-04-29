@@ -1,0 +1,11 @@
+{
+  "eyebrow": "Pour qui",
+  "title": "Pensé pour les structures qui veulent décider mieux, pas plus.",
+  "intro": "Nous travaillons avec des organisations à taille humaine, où chaque indicateur compte et où la clarté prime sur la complexité.",
+  "items": [
+    { "icon": "Store", "title": "Commerces & restauration", "desc": "Coffee shops, restaurants, boutiques : comprendre vos ventes, vos heures fortes, vos produits qui tirent la marge." },
+    { "icon": "ShoppingBag", "title": "E-commerce & DNVB", "desc": "Suivre le CA, les cohortes clients, le panier moyen et les leviers de fidélisation." },
+    { "icon": "Briefcase", "title": "TPE & professions libérales", "desc": "Pharmacies, cabinets, agences : un pilotage simple, fiable, sans usine à gaz." },
+    { "icon": "Building2", "title": "PME en croissance", "desc": "Structurer la donnée existante avant qu’elle ne devienne un frein à la décision." }
+  ]
+}
