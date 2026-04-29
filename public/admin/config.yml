@@ -230,3 +230,4 @@ collections:
               - { name: outcome, label: "Resultat", widget: text }
               - { name: metrics, label: "Indicateurs cles", widget: list, field: { label: "Indicateur", name: item, widget: string } }
 
+
